@@ -1,3 +1,4 @@
+const { response } = require('express');
 const service = require('../service/service')
 class EmployeeController{
     create = (req,res) =>{
@@ -23,8 +24,10 @@ class EmployeeController{
             return res.send(err)
         })
     }
-    deleteEmployee = ()=>{
-        service.getEmployeeDeleteService().then(data=>{
+    deleteEmployee = (req,res)=>{
+        service.getEmployeeDeleteService(req.params.id).then(data=>{
+            response.message='deleted successfully'
+            response.data=data
             return res.send(data)
         }).catch(err=>{
             return res.send(err)

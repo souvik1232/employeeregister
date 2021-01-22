@@ -28,8 +28,8 @@ class EmployeeService{
             return err
         })
     }
-    getEmployeeDeleteService = ()=>{
-        return model.delete().then(data=>{
+    getEmployeeDeleteService = (id)=>{
+        return model.delete(id).then(data=>{
             return data
         }).catch(err=>{
             return err

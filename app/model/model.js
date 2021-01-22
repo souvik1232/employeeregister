@@ -48,11 +48,9 @@ class EmployeeModel{
         })
     }
 
-    delete = ()=>{
+    delete = (id)=>{
         return new Promise((resolve,reject)=>{
-            employee.findOneAndDelete(
-                {_id: "60067882d29c441e0cdf605c"}
-            ).then(data=>{
+            employee.findOneAndDelete(id).then(data=>{
                 resolve(data)
             }).catch(err=>{
                 reject(err)
